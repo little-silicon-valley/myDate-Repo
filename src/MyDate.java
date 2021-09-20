@@ -37,5 +37,15 @@ public class MyDate {
         }
         return false;
     }
+    public int getMonthLastDate(int month) {
+        if (month > 0 && month < 7) {
+            return 31;
+        } else if (month >= 7 && month < 12) {
+            return 30;
+        } else if (month == 12) {
+            return 29;
+        }
 
+        return -1;
+    }
 }
