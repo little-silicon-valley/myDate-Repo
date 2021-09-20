@@ -71,4 +71,10 @@ public class MyDate {
         }
         return this;
     }
+
+    @Override
+    public String toString() {
+        Month month = null;
+        return this.getDay() + " " + month.values()[this.getMonth() - 1] + " " + this.getYear();
+    }
 }
