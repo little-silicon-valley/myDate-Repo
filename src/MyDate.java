@@ -41,4 +41,34 @@ public class MyDate {
     public void setDay(int day) {
         this.day = day;
     }
+
+    public MyDate nextDay() {
+        if (this.getMonth() >= 1 && this.getMonth() <= 6) {
+            if (this.getDay() >= 1 && this.getDay() <= 30) {
+                this.setDay(this.getDay() + 1);
+                return this;
+            } else if (this.getDay() == 31) {
+                this.setDay(1);
+                this.setMonth(this.getMonth() + 1);
+                return this;
+            }
+        } else if (this.getMonth() >= 7 && this.getMonth() <= 12) {
+            if (this.getDay() >= 1 && this.getDay() <= 29) {
+                this.setDay(this.getDay() + 1);
+                return this;
+            } else if (this.getDay() == 30) {
+                if (this.getMonth() != 12) {
+                    this.setDay(1);
+                    this.setMonth(this.getMonth() + 1);
+                    return this;
+                } else if (this.getMonth() == 12) {
+                    this.setDay(1);
+                    this.setMonth(1);
+                    this.setYear(this.getYear() + 1);
+                    return this;
+                }
+            }
+        }
+        return this;
+    }
 }
